@@ -37,13 +37,15 @@ objects:
   metadata:
     name: "${APPLICATION_NAME}"
     labels:
-      application: "${APPLICATION_NAME}"
+      app: "${APPLICATION_NAME}"
+      template: openshift-tomcat-useroot
 - kind: DeploymentConfig
   apiVersion: v1
   metadata:
     name: "${APPLICATION_NAME}"
     labels:
-      application: "${APPLICATION_NAME}"
+      app: "${APPLICATION_NAME}"
+      template: openshift-tomcat-useroot
   spec:
     strategy:
       type: Rolling
@@ -64,7 +66,8 @@ objects:
         name: "${APPLICATION_NAME}"
         labels:
           deploymentConfig: "${APPLICATION_NAME}"
-          application: "${APPLICATION_NAME}"
+          app: "${APPLICATION_NAME}"
+          template: openshift-tomcat-useroot
       spec:
         serviceAccountName: "${APPLICATION_NAME}-serviceaccount"
         containers:
@@ -80,7 +83,8 @@ objects:
   metadata:
     name: "${APPLICATION_NAME}"
     labels:
-      application: "${APPLICATION_NAME}"
+      app: "${APPLICATION_NAME}"
+      template: openshift-tomcat-useroot
   spec:
     source:
       type: Git
@@ -101,12 +105,6 @@ objects:
         name: "${APPLICATION_NAME}:latest"
     triggers:
     - type: ConfigChange
-    - type: Generic
-      generic:
-        secret: secret101
-    - type: GitHub
-      github:
-        secret: secret101
 - kind: Service
   apiVersion: v1
   spec:
@@ -126,7 +124,8 @@ objects:
   metadata:
     name: "${APPLICATION_NAME}"
     labels:
-      application: "${APPLICATION_NAME}"
+      app: "${APPLICATION_NAME}"
+      template: openshift-tomcat-useroot
     annotations:
       description: The web server's http port.
 - kind: Route
@@ -135,7 +134,8 @@ objects:
   metadata:
     name: "${APPLICATION_NAME}-http-route"
     labels:
-      application: "${APPLICATION_NAME}"
+      app: "${APPLICATION_NAME}"
+      template: openshift-tomcat-useroot
     annotations:
       description: Route for application's http service.
   spec:
@@ -153,4 +153,5 @@ objects:
   metadata:
     name: "${APPLICATION_NAME}-serviceaccount"
     labels:
-      application: "${APPLICATION_NAME}"
+      app: "${APPLICATION_NAME}"
+      template: openshift-tomcat-useroot
