@@ -70,6 +70,7 @@ objects:
           template: openshift-tomcat-useroot
       spec:
         serviceAccountName: "${APPLICATION_NAME}-serviceaccount"
+        automountServiceAccountToken: false
         containers:
         - name: "${APPLICATION_NAME}"
           image: "${APPLICATION_NAME}"
