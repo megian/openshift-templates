@@ -4,7 +4,7 @@
   ],
   "regexManagers": [
     {
-      "fileMatch": ["^defaults.yml$"],
+      "fileMatch": ["^class/defaults.yml$"],
       "matchStrings": [
         "suc_image:[[:space:]](?<depName>.*?):(?<currentValue>.*?)$"
       ],
