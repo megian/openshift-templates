@@ -1,0 +1,11 @@
+{
+  "regexManagers": [
+    {
+      "fileMatch": ["^defaults.yml$"],
+      "matchStrings": [
+        "suc_image:[[:space:]](?<depName>.*?):(?<currentValue>.*?)$"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
+}
