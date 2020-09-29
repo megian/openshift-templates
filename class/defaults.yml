@@ -1,4 +1,4 @@
 parameters:
   system_upgrade_controller:
-    suc_image: rancher/system-upgrade-controller:v0.5.0
+    suc_image: docker.io/rancher/system-upgrade-controller:v0.5.0
 
